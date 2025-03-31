@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Interactive Cupcake with Candle</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        .cupcake {
+            position: relative;
+            width: 30vw;
+            height: 30vw;
+            /* background: #ff99cc; */
+            border-radius: 50% 50% 0 0;
+            /* box-shadow: inset 0 -1vw 0 #ff66b2; */
+        }
+        .wrapper {
+            text-align: center;
+        }
+        /* .base {
+            width: 25vw;
+            height: 20vw;
+            background: #cc6600;
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+            margin: -1vw auto 0;
+        } */
+        .candle {
+            position: absolute;
+            width: 3vw;
+            height: 35vw;
+            background: red;
+            left: 65%;
+            bottom: 100%;
+            transform: translateX(-50%);
+        }
+        .flame {
+            position: absolute;
+            width: 4vw;
+            height: 7vw;
+            background: orange;
+            border-radius: 50%;
+            top: -7vw;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 0.5s ease;
+        }
+
+        #cake {
+            position: absolute;
+            width: 110vw;
+            height: 50vh;
+            left: -39vw;
+            top: -10vh;
+        }
+
+        #dance__ {
+            position: absolute;
+            top: -100vw;
+            left: -90%;
+            width: 100vw;
+        }
+
+        #celebrate{
+            position: absolute;
+            top: 50vw;
+            left: -60%;
+            width: 80vw;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="cupcake">
+            <img src="cake.png" alt="cake_" id="cake">
+            <img src="dance.gif" alt="dance_" id="dance__">
+            <img src="celebrate.gif" alt="" id="celebrate">
+            <div class="candle">
+                <div class="flame" id="flame"></div>
+            </div>
+        </div>
+        <div class="base"></div>
+
+    </div>
+    <script>
+        const flame = document.getElementById("flame");
+        flame.addEventListener("touchstart", () => {
+            flame.style.opacity = "0";
+        });
+        flame.addEventListener("touchend", () => {
+            setTimeout(() => {
+                flame.style.opacity = "1";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
